@@ -12,7 +12,7 @@ const STRIP = [
   { icon: Store, b: 'Two stores, one brand', s: 'Shop the rack nearest you' },
 ];
 
-const DURATION = 5000;
+const DURATION = 3500; // per slide — short enough that visitors see every offer
 
 /** Auto-advancing index. It keeps moving on its own and only stops when `paused` is set. */
 function useCarousel(count: number, duration: number) {
@@ -54,18 +54,18 @@ export function SlideContent({ s, animate = true }: { s: Pick<BannerSlide, 'imag
     <>
       <div className="bnr__img">
         {s.image ? (
-          <motion.img src={s.image} alt="" draggable={false} {...(animate ? { initial: { scale: 1.12 }, animate: { scale: 1 }, transition: { duration: 6, ease: 'linear' } } : {})} />
+          <motion.img src={s.image} alt="" draggable={false} {...(animate ? { initial: { scale: 1.12 }, animate: { scale: 1 }, transition: { duration: 4.2, ease: 'linear' } } : {})} />
         ) : (
           <div className="bnr__noimg">Upload a photo</div>
         )}
       </div>
       <div className={`bnr__panel bnr__panel--${s.tone}`}>
         {s.tag && (
-          <motion.span className="bnr__tag" {...fade(0.45)}>
+          <motion.span className="bnr__tag" {...fade(0.2)}>
             {s.tag}
           </motion.span>
         )}
-        <motion.h2 className="bnr__title" {...fade(0.55)}>
+        <motion.h2 className="bnr__title" {...fade(0.28)}>
           {s.title || 'Your heading'}
           {s.highlight && (
             <>
@@ -75,16 +75,16 @@ export function SlideContent({ s, animate = true }: { s: Pick<BannerSlide, 'imag
           )}
         </motion.h2>
         {s.offer && (
-          <motion.div className="bnr__offer" {...fade(0.65)}>
+          <motion.div className="bnr__offer" {...fade(0.36)}>
             {s.offer}
           </motion.div>
         )}
         {s.sub && (
-          <motion.p className="bnr__sub" {...fade(0.75)}>
+          <motion.p className="bnr__sub" {...fade(0.44)}>
             {s.sub}
           </motion.p>
         )}
-        <motion.div className="bnr__cta" {...fade(0.85)}>
+        <motion.div className="bnr__cta" {...fade(0.5)}>
           <Link to={s.link || '/'} className={`btn btn--lg ${s.tone === 'ink' ? 'btn--gold' : 'btn--ink'}`} onClick={(e) => !animate && e.preventDefault()}>
             {s.cta || 'Shop now'} <ArrowRight size={18} />
           </Link>
@@ -126,7 +126,7 @@ export function Banner() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.75, ease: [0.65, 0, 0.35, 1] }}
+              transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.2}
