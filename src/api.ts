@@ -1,4 +1,8 @@
 import type { BannerSlide, CartItem, Notification, Order, OrderStatus, Product, StoreId, StoreInfo } from './data';
+import { ApiError } from './apiError';
+import { demoApi } from './demoApi';
+
+export { ApiError };
 
 const TOKEN_KEY = 'sb.adminToken';
 
@@ -20,12 +24,6 @@ export const adminToken = {
   },
 };
 
-export class ApiError extends Error {
-  constructor(public status: number, message: string) {
-    super(message);
-  }
-}
-
 async function request<T>(path: string, init: RequestInit = {}, admin = false): Promise<T> {
   const headers = new Headers(init.headers);
   if (init.body && !(init.body instanceof FormData)) headers.set('Content-Type', 'application/json');
@@ -39,6 +37,10 @@ async function request<T>(path: string, init: RequestInit = {}, admin = false): 
   } catch {
     throw new ApiError(0, 'Cannot reach the server. Is the backend running?');
   }
+  // A static host answers unknown paths with the HTML page — never treat that as data.
+  if (!(res.headers.get('content-type') || '').includes('application/json')) {
+    throw new ApiError(0, 'The server is not available');
+  }
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
     if (res.status === 401 && admin) adminToken.set(null);
@@ -49,7 +51,7 @@ async function request<T>(path: string, init: RequestInit = {}, admin = false): 
 
 const json = (body: unknown) => JSON.stringify(body);
 
-export const api = {
+const serverApi = {
   stores: () => request<StoreInfo[]>('/api/stores'),
   banners: () => request<BannerSlide[]>('/api/banners'),
   products: () => request<Product[]>('/api/products'),
@@ -74,3 +76,27 @@ export const api = {
   deleteBanner: (id: number) => request<{ ok: true }>(`/api/admin/banners/${id}`, { method: 'DELETE' }, true),
   notifications: () => request<Notification[]>('/api/admin/notifications', {}, true),
 };
+
+type Api = typeof serverApi;
+
+/**
+ * Decide once per page load: use the real backend when it answers, otherwise the in-browser demo
+ * backend (static hosting such as Netlify has no API).
+ */
+let mode: Promise<'server' | 'demo'> | null = null;
+export function backendMode() {
+  mode ??= fetch('/api/health')
+    .then((r) => (r.ok && (r.headers.get('content-type') || '').includes('application/json') ? 'server' : 'demo'))
+    .catch(() => 'demo' as const);
+  return mode;
+}
+
+export const api = Object.fromEntries(
+  (Object.keys(serverApi) as (keyof Api)[]).map((k) => [
+    k,
+    async (...args: unknown[]) => {
+      const impl = (await backendMode()) === 'server' ? serverApi : demoApi;
+      return (impl[k] as (...a: unknown[]) => unknown)(...args);
+    },
+  ]),
+) as Api;

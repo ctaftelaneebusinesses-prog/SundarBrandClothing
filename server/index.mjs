@@ -31,6 +31,8 @@ const upload = multer({
 const app = express();
 app.use(express.json({ limit: '1mb' }));
 app.use('/uploads', express.static(join(here, 'uploads'), { maxAge: '7d' }));
+// Starting product photos live in the website's public folder so static hosts (Netlify) serve them too.
+app.use('/uploads', express.static(join(here, '..', 'public', 'uploads'), { maxAge: '7d' }));
 
 /* ---------------- helpers ---------------- */
 class HttpError extends Error {

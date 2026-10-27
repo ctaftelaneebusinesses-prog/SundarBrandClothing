@@ -6,7 +6,7 @@ import {
   Store as StoreIcon, Trash2, TrendingUp, X, Images, Check, MapPin,
 } from 'lucide-react';
 import { useStore } from '../store';
-import { adminToken, api, ApiError } from '../api';
+import { adminToken, api, ApiError, backendMode } from '../api';
 import { CATS, ORDER_STATUSES, SIZES, inr, type Category, type Notification, type Order, type OrderStatus, type Product, type StoreId, type StoreInfo } from '../data';
 import { Logo } from '../components/Layout';
 import { BannersTab } from './AdminBanners';
@@ -117,6 +117,11 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
     void loadOrders();
   }, [loadOrders]);
 
+  const [preview, setPreview] = useState(false);
+  useEffect(() => {
+    void backendMode().then((m) => setPreview(m === 'demo'));
+  }, []);
+
   return (
     <div className="admin">
       <aside className="admin__side">
@@ -143,6 +148,11 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
         </div>
       </aside>
       <main className="admin__main">
+        {preview && (
+          <div className="preview-note">
+            <b>Preview mode</b> — this site is running without its server, so changes are saved in this browser only.
+          </div>
+        )}
         <header className="admin__head">
           <div>
             <h1>{TITLES[tab][0]}</h1>

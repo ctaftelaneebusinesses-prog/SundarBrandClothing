@@ -57,3 +57,13 @@ a.flip {
   cursor: pointer;
   color: inherit;
 }
+
+.preview-note {
+  margin-bottom: 18px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: var(--s1-soft);
+  color: var(--s1-deep);
+  font-size: 13.5px;
+  border: 1px solid rgba(44, 90, 160, 0.25);
+}
