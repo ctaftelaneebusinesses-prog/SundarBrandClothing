@@ -532,3 +532,61 @@
     display: none;
   }
 }
+
+/* ---------- Phone navbar: logo + cart + menu only ---------- */
+@media (max-width: 700px) {
+  .nav,
+  .nav--solid {
+    background: #fbf6ec;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(90deg, transparent, rgba(211, 154, 44, 0.7), transparent) 1;
+    box-shadow: 0 6px 18px -14px rgba(16, 20, 31, 0.5);
+  }
+  .nav__in {
+    height: 66px;
+  }
+  .lockup {
+    gap: 10px;
+  }
+  .lockup img {
+    height: 40px !important;
+  }
+  .lockup__word b {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+  .lockup__word small,
+  .nav__plain {
+    display: none !important;
+  }
+  .nav__right {
+    gap: 10px;
+  }
+  .nav__book,
+  .nav__burger {
+    width: 44px;
+    height: 44px;
+  }
+  .nav__burger {
+    background: var(--ink);
+    color: #fffaf0;
+    border: 0;
+  }
+  .nav__book {
+    background: #fffaf0;
+    color: var(--ink);
+    border: 1.5px solid rgba(211, 154, 44, 0.55);
+    box-shadow: none;
+  }
+}
+@media (max-width: 360px) {
+  .lockup__word b {
+    font-size: 15px;
+    letter-spacing: 0.06em;
+  }
+  .lockup img {
+    height: 34px !important;
+  }
+}
