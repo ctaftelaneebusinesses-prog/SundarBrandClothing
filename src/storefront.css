@@ -505,3 +505,219 @@
     animation: none;
   }
 }
+
+/* Desktop: the phone-only photo layer is hidden */
+.sf__photo {
+  display: none;
+}
+
+/* =========================================================
+   Phones: store header in the same style as the home banner
+   ========================================================= */
+@media (max-width: 700px) {
+  .sf {
+    padding-top: 0;
+    background: var(--sf-b);
+  }
+  .sf__bg {
+    z-index: 0;
+  }
+  .sf__numeral,
+  .sf__glow--b,
+  .sf__stage {
+    display: none;
+  }
+  .sf__photo {
+    display: block;
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 430px;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .sf__photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+  .sf__photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 35%, color-mix(in srgb, var(--sf-b) 75%, transparent) 70%, var(--sf-b) 100%);
+    pointer-events: none;
+  }
+  .sf__mtag {
+    position: absolute;
+    z-index: 2;
+    top: 16px;
+    right: 16px;
+    max-width: 58%;
+    padding: 10px 12px;
+    border-radius: 16px;
+    background: rgba(255, 250, 240, 0.9);
+    backdrop-filter: blur(10px);
+    color: var(--ink);
+    box-shadow: 0 16px 34px -18px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .sf__mtag small {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sf-b);
+  }
+  .sf__mtag b {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.1;
+  }
+  .sf__mtag span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .sf__mtag em {
+    font-style: normal;
+    font-size: 10.5px;
+    padding: 1px 7px;
+    border-radius: 99px;
+    background: var(--ink);
+    color: var(--honey);
+  }
+  .sf__grid {
+    position: relative;
+    z-index: 1;
+    display: block;
+    min-height: 0;
+    padding-top: 300px;
+  }
+  .sf__kicker {
+    font-size: 10.5px;
+    padding: 6px 12px 6px 10px;
+    letter-spacing: 0.16em;
+    background: rgba(255, 255, 255, 0.14);
+  }
+  .sf__title {
+    font-size: 58px;
+    margin: 12px 0 2px;
+  }
+  .sf__name {
+    font-size: 19px;
+    margin-bottom: 14px;
+  }
+  .sf__chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -16px 16px;
+    padding: 0 16px;
+  }
+  .sf__chips::-webkit-scrollbar {
+    display: none;
+  }
+  .sf__chips span {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .sf__stats {
+    margin-bottom: 18px;
+  }
+  .sf__stats div {
+    padding: 10px 12px;
+  }
+  .sf__stats b {
+    font-size: 26px;
+  }
+  .sf__stats small {
+    font-size: 11px;
+  }
+  .sf__cta {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .sf__browse {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+  .sf__switch {
+    flex-shrink: 0;
+    padding: 8px 14px 8px 10px;
+  }
+  .sf__switch i {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Categories: swipeable row */
+  .sf__cats {
+    position: relative;
+    z-index: 1;
+    margin-top: 22px;
+    padding-bottom: 22px;
+  }
+  .sf__cats-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 10px;
+    margin: 0 -16px;
+    padding: 0 16px 4px;
+  }
+  .sf__cats-row::-webkit-scrollbar {
+    display: none;
+  }
+  .sf__cat {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    padding: 6px 14px 6px 6px;
+    border-radius: 99px;
+  }
+  .sf__cat-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+  .sf__cat-txt b {
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+  .sf__cat-txt small {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 380px) {
+  .sf__photo {
+    height: 400px;
+  }
+  .sf__grid {
+    padding-top: 275px;
+  }
+  .sf__title {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 700px) {
+  /* The copy column starts below the photo; let taps on the photo reach the Featured card */
+  .sf__grid {
+    pointer-events: none;
+  }
+  .sf__copy {
+    pointer-events: auto;
+  }
+}

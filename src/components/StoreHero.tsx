@@ -56,6 +56,35 @@ export function StoreHero({ storeId, onPickCat }: { storeId: StoreId; onPickCat:
         <span className="sf__numeral">{store.no}</span>
       </div>
 
+      {/* Phones: full-bleed rotating photo of the featured piece (hidden on larger screens) */}
+      <div className="sf__photo" aria-hidden={!lead}>
+        <AnimatePresence initial={false}>
+          {lead && (
+            <motion.img
+              key={lead.id}
+              src={lead.image}
+              alt=""
+              initial={{ opacity: 0, scale: 1.08 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ opacity: { duration: 0.7 }, scale: { duration: 3.6, ease: 'linear' } }}
+            />
+          )}
+        </AnimatePresence>
+        {lead && (
+          <Link to={`/product/${lead.id}?store=${storeId}`} className="sf__mtag">
+            <small>
+              <Sparkles size={11} /> Featured
+            </small>
+            <b>{lead.name}</b>
+            <span>
+              {inr(lead.price)}
+              {off(lead) > 0 && <em>{off(lead)}% off</em>}
+            </span>
+          </Link>
+        )}
+      </div>
+
       <div className="wrap sf__grid">
         <motion.div key={storeId} className="sf__copy" initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
           <span className="sf__kicker">
