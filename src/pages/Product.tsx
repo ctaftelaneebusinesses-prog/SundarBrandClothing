@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Check, MapPin, Minus, Plus, RotateCcw, ShieldCheck, ShoppingBag, Store, Zap } from 'lucide-react';
 import { useStore } from '../store';
@@ -15,6 +15,8 @@ export default function Product() {
   const [qty, setQty] = useState(1);
   const [storeId, setStoreId] = useState<StoreId | ''>('');
   const [sizeError, setSizeError] = useState(false);
+  const [nudge, setNudge] = useState(0);
+  const sizesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!p) return;
@@ -48,7 +50,11 @@ export default function Product() {
   const soldOut = p.stock === 0;
   const add = (thenCheckout: boolean) => {
     if (!size) {
+      // The size picker can be scrolled out of view on short screens — bring it back and point at it.
       setSizeError(true);
+      setNudge((n) => n + 1);
+      sizesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      notify('Please select your size first');
       return;
     }
     addToCart({ productId: p.id, storeId: storeId || p.stores[0], size, qty });
@@ -83,7 +89,7 @@ export default function Product() {
             </div>
             <small className="pdp__tax">Inclusive of all taxes</small>
 
-            <div className="pdp__block">
+            <div className={`pdp__block pdp__sizes ${sizeError ? 'is-error' : ''}`} ref={sizesRef} key={nudge}>
               <div className="pdp__label">
                 <span>Select size</span>
                 {size && <b>Selected: {size}</b>}
@@ -102,7 +108,7 @@ export default function Product() {
                   </button>
                 ))}
               </div>
-              {sizeError && <p className="hint">Please select a size.</p>}
+              {sizeError && <p className="hint">Please select a size to continue.</p>}
             </div>
 
             <div className="pdp__block">

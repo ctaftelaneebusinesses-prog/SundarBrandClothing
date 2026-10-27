@@ -7,6 +7,7 @@ import './commerce.css';
 import './themes.css';
 import './brand.css';
 import './storefront.css';
+import './fixes.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

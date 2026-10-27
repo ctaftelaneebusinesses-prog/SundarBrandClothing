@@ -255,12 +255,13 @@ function Trending() {
             Trending <em>now.</em>
           </motion.h2>
         </div>
-        <p>Hover or tap a card to flip it.</p>
+        <p>Hover a card to flip it — click to book.</p>
       </div>
       <div className="rail" ref={rail}>
         <div className="rail__track">
           {[...items, ...items].map((p, i) => (
-            <div key={p.id + i} className="flip" tabIndex={0}>
+            // The whole card is the link, so it works wherever it is clicked, front or back, while the rail moves.
+            <Link key={p.id + '-' + i} to={`/product/${p.id}?store=${p.stores[0]}`} className="flip" aria-label={`Book ${p.name}`}>
               <div className="flip__in">
                 <div className="flip__face">
                   <img src={p.image} alt={p.name} />
@@ -280,12 +281,12 @@ function Trending() {
                     <b>{inr(p.price)}</b>
                     <s>{inr(p.mrp)}</s>
                   </div>
-                  <Link to={`/product/${p.id}`} className="btn btn--light btn--sm">
+                  <span className="btn btn--light btn--sm">
                     Book now <ArrowRight size={15} />
-                  </Link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

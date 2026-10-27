@@ -1,0 +1,670 @@
+{
+  "sizes": {
+    "Suits": [
+      "36",
+      "38",
+      "40",
+      "42",
+      "44"
+    ],
+    "Shirts": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "Trousers": [
+      "30",
+      "32",
+      "34",
+      "36",
+      "38"
+    ],
+    "Footwear": [
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11"
+    ],
+    "Belts": [
+      "30",
+      "32",
+      "34",
+      "36",
+      "38",
+      "40"
+    ],
+    "Accessories": [
+      "Standard"
+    ]
+  },
+  "stores": [
+    {
+      "id": "one",
+      "no": "01",
+      "name": "[LOCATION 1 NAME]",
+      "address": "[Street address, town]",
+      "hours": "Open [DAYS] · [HOURS]",
+      "phone": "[Phone number]"
+    },
+    {
+      "id": "two",
+      "no": "02",
+      "name": "[LOCATION 2 NAME]",
+      "address": "[Street address, town]",
+      "hours": "Open [DAYS] · [HOURS]",
+      "phone": "[Phone number]"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Navy two-piece suit",
+      "category": "Suits",
+      "image": "/uploads/seed/navy-suit.jpg",
+      "price": 12999,
+      "mrp": 18999,
+      "stock": 8,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "A sharp single-breasted navy suit in a breathable wool blend. Slim through the body with a clean, modern lapel — ready for weddings, interviews and the office."
+    },
+    {
+      "id": 2,
+      "name": "Midnight navy suit",
+      "category": "Suits",
+      "image": "/uploads/seed/midnight-suit.jpg",
+      "price": 13499,
+      "mrp": 19499,
+      "stock": 6,
+      "stores": [
+        "one"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "Deep midnight navy with a subtle sheen. Half-canvas construction, notch lapel and matching flat-front trousers."
+    },
+    {
+      "id": 3,
+      "name": "Forest green suit",
+      "category": "Suits",
+      "image": "/uploads/seed/green-suit.jpg",
+      "price": 13999,
+      "mrp": 19999,
+      "stock": 4,
+      "stores": [
+        "one"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "A confident forest green two-piece for those who want to stand apart. Soft shoulder and tapered trousers."
+    },
+    {
+      "id": 4,
+      "name": "Royal blue suit",
+      "category": "Suits",
+      "image": "/uploads/seed/royal-blue-suit.jpg",
+      "price": 12499,
+      "mrp": 17999,
+      "stock": 5,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "Bright royal blue in a light, all-season fabric. Pair it with a white shirt and brown shoes."
+    },
+    {
+      "id": 5,
+      "name": "Blue check three-piece",
+      "category": "Suits",
+      "image": "/uploads/seed/check-three-piece.jpg",
+      "price": 15999,
+      "mrp": 22999,
+      "stock": 3,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "Jacket, waistcoat and trousers in a classic blue windowpane check. Made for occasions."
+    },
+    {
+      "id": 6,
+      "name": "Navy check blazer",
+      "category": "Suits",
+      "image": "/uploads/seed/navy-check-blazer.jpg",
+      "price": 7999,
+      "mrp": 11999,
+      "stock": 7,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "A versatile navy check blazer that works over a shirt or a crew-neck tee."
+    },
+    {
+      "id": 7,
+      "name": "Black evening suit",
+      "category": "Suits",
+      "image": "/uploads/seed/black-evening-suit.jpg",
+      "price": 16999,
+      "mrp": 23999,
+      "stock": 4,
+      "stores": [
+        "one"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "Satin-trimmed black evening suit for receptions and black-tie events."
+    },
+    {
+      "id": 8,
+      "name": "Grey check blazer",
+      "category": "Suits",
+      "image": "/uploads/seed/grey-check-blazer.jpg",
+      "price": 6999,
+      "mrp": 10999,
+      "stock": 6,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "36",
+        "38",
+        "40",
+        "42",
+        "44"
+      ],
+      "description": "Light grey check blazer with patch pockets — smart-casual at its best."
+    },
+    {
+      "id": 9,
+      "name": "White formal shirt",
+      "category": "Shirts",
+      "image": "/uploads/seed/white-shirt.jpg",
+      "price": 1499,
+      "mrp": 2499,
+      "stock": 30,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "100% cotton poplin formal shirt with a spread collar. Easy-iron finish."
+    },
+    {
+      "id": 10,
+      "name": "Sky blue formal shirt",
+      "category": "Shirts",
+      "image": "/uploads/seed/sky-blue-shirt.jpg",
+      "price": 1399,
+      "mrp": 2299,
+      "stock": 24,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "Classic sky blue in crisp cotton. The shirt that goes with every suit."
+    },
+    {
+      "id": 11,
+      "name": "Checked casual shirt",
+      "category": "Shirts",
+      "image": "/uploads/seed/check-shirt.jpg",
+      "price": 1299,
+      "mrp": 2199,
+      "stock": 18,
+      "stores": [
+        "one"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "Soft brushed-cotton check shirt for weekends. Wear it open over a tee or buttoned up."
+    },
+    {
+      "id": 12,
+      "name": "Printed cotton shirt",
+      "category": "Shirts",
+      "image": "/uploads/seed/printed-shirt.jpg",
+      "price": 1199,
+      "mrp": 1999,
+      "stock": 20,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "Lightweight cotton shirt with a fine all-over print."
+    },
+    {
+      "id": 13,
+      "name": "Black crew-neck tee",
+      "category": "Shirts",
+      "image": "/uploads/seed/black-tee.jpg",
+      "price": 699,
+      "mrp": 999,
+      "stock": 40,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "Heavyweight 220gsm cotton tee in jet black. Holds its shape wash after wash."
+    },
+    {
+      "id": 14,
+      "name": "White crew-neck tee",
+      "category": "Shirts",
+      "image": "/uploads/seed/white-tee.jpg",
+      "price": 699,
+      "mrp": 999,
+      "stock": 40,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "Our everyday white tee in combed cotton."
+    },
+    {
+      "id": 15,
+      "name": "Khaki chinos",
+      "category": "Trousers",
+      "image": "/uploads/seed/khaki-chinos.jpg",
+      "price": 1799,
+      "mrp": 2999,
+      "stock": 22,
+      "stores": [
+        "one"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "description": "Stretch cotton chinos with a tapered leg. Smart enough for work, easy for weekends."
+    },
+    {
+      "id": 16,
+      "name": "Black tapered trousers",
+      "category": "Trousers",
+      "image": "/uploads/seed/black-trousers.jpg",
+      "price": 1999,
+      "mrp": 3199,
+      "stock": 16,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "description": "Tailored black trousers with a clean ankle-length taper."
+    },
+    {
+      "id": 17,
+      "name": "Dark indigo jeans",
+      "category": "Trousers",
+      "image": "/uploads/seed/indigo-jeans.jpg",
+      "price": 2199,
+      "mrp": 3499,
+      "stock": 14,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "description": "Slim-fit dark indigo denim with a touch of stretch."
+    },
+    {
+      "id": 18,
+      "name": "Classic blue jeans",
+      "category": "Trousers",
+      "image": "/uploads/seed/blue-jeans.jpg",
+      "price": 1999,
+      "mrp": 3199,
+      "stock": 18,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "description": "Mid-wash straight-fit jeans in sturdy cotton denim."
+    },
+    {
+      "id": 19,
+      "name": "Brown leather oxfords",
+      "category": "Footwear",
+      "image": "/uploads/seed/brown-oxfords.jpg",
+      "price": 3499,
+      "mrp": 5499,
+      "stock": 10,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "description": "Polished full-grain leather oxfords with a leather sole."
+    },
+    {
+      "id": 20,
+      "name": "Brown brogues",
+      "category": "Footwear",
+      "image": "/uploads/seed/brown-brogues.jpg",
+      "price": 3799,
+      "mrp": 5799,
+      "stock": 7,
+      "stores": [
+        "one"
+      ],
+      "sizes": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "description": "Wingtip brogues in rich brown leather — a classic with every suit."
+    },
+    {
+      "id": 21,
+      "name": "Double monk straps",
+      "category": "Footwear",
+      "image": "/uploads/seed/monk-straps.jpg",
+      "price": 3999,
+      "mrp": 5999,
+      "stock": 6,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "description": "Double monk-strap shoes in burnished brown leather."
+    },
+    {
+      "id": 22,
+      "name": "Tan Chelsea boots",
+      "category": "Footwear",
+      "image": "/uploads/seed/chelsea-boots.jpg",
+      "price": 4299,
+      "mrp": 6499,
+      "stock": 6,
+      "stores": [
+        "two"
+      ],
+      "sizes": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "description": "Tan leather Chelsea boots with elastic gussets and a stacked heel."
+    },
+    {
+      "id": 23,
+      "name": "Dark leather boots",
+      "category": "Footwear",
+      "image": "/uploads/seed/leather-boots.jpg",
+      "price": 4499,
+      "mrp": 6999,
+      "stock": 5,
+      "stores": [
+        "one"
+      ],
+      "sizes": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "description": "Lace-up leather boots built for everyday wear."
+    },
+    {
+      "id": 24,
+      "name": "Tan leather belt",
+      "category": "Belts",
+      "image": "/uploads/seed/tan-belt.jpg",
+      "price": 849,
+      "mrp": 1499,
+      "stock": 25,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40"
+      ],
+      "description": "Full-grain tan leather belt with a brushed steel buckle."
+    },
+    {
+      "id": 25,
+      "name": "Classic leather belt",
+      "category": "Belts",
+      "image": "/uploads/seed/belt-set.jpg",
+      "price": 799,
+      "mrp": 1499,
+      "stock": 35,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36",
+        "38",
+        "40"
+      ],
+      "description": "A sturdy everyday leather belt, available in black and brown."
+    },
+    {
+      "id": 26,
+      "name": "Silk paisley tie",
+      "category": "Accessories",
+      "image": "/uploads/seed/silk-tie.jpg",
+      "price": 649,
+      "mrp": 1099,
+      "stock": 30,
+      "stores": [
+        "one",
+        "two"
+      ],
+      "sizes": [
+        "Standard"
+      ],
+      "description": "Woven silk tie with a soft paisley pattern."
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "image": "/uploads/seed/navy-suit.jpg",
+      "tag": "Menswear · Two stores",
+      "title": "Choose your store.",
+      "highlight": "Book your fit.",
+      "offer": "Suits up to 35% off",
+      "sub": "See exactly what is on each rack, reserve online and collect in store.",
+      "cta": "Shop Store 01",
+      "link": "/store/one?cat=Suits",
+      "tone": "gold",
+      "sort": 0,
+      "active": true
+    },
+    {
+      "id": 2,
+      "image": "/uploads/seed/formal-shirts.jpg",
+      "tag": "New in · Formal shirts",
+      "title": "Crisp shirts,",
+      "highlight": "every day.",
+      "offer": "Shirts from ₹ 699",
+      "sub": "Cotton formals, casual checks and everyday tees in every size.",
+      "cta": "Shop Store 02",
+      "link": "/store/two?cat=Shirts",
+      "tone": "sage",
+      "sort": 1,
+      "active": true
+    },
+    {
+      "id": 3,
+      "image": "/uploads/seed/brown-brogues.jpg",
+      "tag": "Footwear edit",
+      "title": "Leather that",
+      "highlight": "walks with you.",
+      "offer": "Flat 30% off shoes",
+      "sub": "Oxfords, brogues, monk straps and Chelsea boots in full-grain leather.",
+      "cta": "Shop footwear",
+      "link": "/store/one?cat=Footwear",
+      "tone": "cream",
+      "sort": 2,
+      "active": true
+    },
+    {
+      "id": 4,
+      "image": "/uploads/seed/check-three-piece.jpg",
+      "tag": "Wedding season",
+      "title": "The three-piece",
+      "highlight": "is back.",
+      "offer": "Up to 30% off occasionwear",
+      "sub": "Windowpane checks, rich navies and evening black — tailored for the big day.",
+      "cta": "Explore Store 02",
+      "link": "/store/two?cat=Suits",
+      "tone": "ink",
+      "sort": 3,
+      "active": true
+    },
+    {
+      "id": 5,
+      "image": "/uploads/seed/suit-atelier.jpg",
+      "tag": "Reserve online",
+      "title": "Your size,",
+      "highlight": "held for you.",
+      "offer": "Ready to collect in 48 hrs",
+      "sub": "Pay securely online and your piece waits at the counter — no queues, no guesswork.",
+      "cta": "Start booking",
+      "link": "/store/one",
+      "tone": "blue",
+      "sort": 4,
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+/* Anything scrolled into view stops below the sticky announcement bar + header */
+html {
+  scroll-padding-top: 140px;
+}
+.pdp__sizes,
+.checkout .fld {
+  scroll-margin-top: 140px;
+  scroll-margin-bottom: 40px;
+}
+
+/* Missing size: the picker pulses in the store colour so the customer sees what to do */
+.pdp__sizes {
+  border-radius: 18px;
+  transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+}
+.pdp__sizes.is-error {
+  padding: 14px;
+  margin-left: -14px;
+  margin-right: -14px;
+  background: color-mix(in srgb, var(--accent, #d39a2c) 10%, transparent);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent, #d39a2c) 70%, transparent);
+  animation: sizeNudge 0.5s ease-in-out 2;
+}
+.pdp__sizes.is-error .size:not(.is-on) {
+  border-color: color-mix(in srgb, var(--accent, #d39a2c) 55%, transparent);
+}
+.pdp__sizes .hint {
+  margin-top: 10px;
+  font-weight: 700;
+  color: #b4513a;
+}
+@keyframes sizeNudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pdp__sizes.is-error {
+    animation: none;
+  }
+}
+
+/* Toast messages never block taps on the page underneath */
+.toast {
+  pointer-events: none;
+}
+/* Trending cards are links now */
+a.flip {
+  display: block;
+  cursor: pointer;
+  color: inherit;
+}

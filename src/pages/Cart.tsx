@@ -9,7 +9,7 @@ import { inr, type Order } from '../data';
 const today = () => new Date().toISOString().slice(0, 10);
 
 export default function Cart() {
-  const { cart, productById, stores, setQty, clearCart, refresh, loading, error } = useStore();
+  const { cart, productById, stores, setQty, clearCart, refresh, loading, error, notify } = useStore();
   const [f, setF] = useState({ name: '', phone: '', email: '', address: '', date: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [pending, setPending] = useState<Order | null>(null);
@@ -42,7 +42,11 @@ export default function Cart() {
 
   const checkout = async () => {
     setServerError('');
-    if (!validate()) return;
+    if (!validate()) {
+      notify('Please fill in the highlighted details');
+      setTimeout(() => document.querySelector('.checkout .hint')?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 60);
+      return;
+    }
     setBusy(true);
     try {
       const order = await api.createOrder({
