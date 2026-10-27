@@ -1,17 +1,17 @@
 import { useMemo, useState } from 'react';
 import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeftRight, ArrowRight, Clock, MapPin, Phone } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useStore } from '../store';
-import { CATS, STORE_BANNERS, inr, off, photo, type Category, type StoreId } from '../data';
-import { Eyebrow } from '../components/Layout';
+import { CATS, inr, off, type Category } from '../data';
+import { StoreHero } from '../components/StoreHero';
 
 const PAGE = 12;
 
 export default function Shop() {
   const { id } = useParams();
   const [params, setParams] = useSearchParams();
-  const { stores, products, loading, error } = useStore();
+  const { products, loading, error } = useStore();
   const [sort, setSort] = useState('featured');
   const [visible, setVisible] = useState(PAGE);
   const cat = (CATS as string[]).includes(params.get('cat') || '') ? (params.get('cat') as Category) : 'All';
@@ -26,8 +26,6 @@ export default function Shop() {
   }, [products, id, cat, sort]);
 
   if (id !== 'one' && id !== 'two') return <Navigate to="/" replace />;
-  const store = stores[id];
-  const other: StoreId = id === 'one' ? 'two' : 'one';
   const setCat = (c: Category | 'All') => {
     setParams(c === 'All' ? {} : { cat: c }, { replace: true });
     setVisible(PAGE);
@@ -35,47 +33,9 @@ export default function Shop() {
 
   return (
     <div className={`shop shop--${id} theme-${id}`}>
-      <div className="store-ribbon" />
-      <section className="shop-hero">
-        <div className="wrap shop-hero__grid">
-          <motion.div key={id} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <Eyebrow>Store {store.no} · Now browsing</Eyebrow>
-            <h1>
-              <span className="shop-hero__no">{store.no}</span>
-              {store.name}
-            </h1>
-            <div className="shop-hero__meta">
-              {store.address && (
-                <span>
-                  <MapPin size={15} /> {store.address}
-                </span>
-              )}
-              {store.hours && (
-                <span>
-                  <Clock size={15} /> {store.hours}
-                </span>
-              )}
-              {store.phone && (
-                <span>
-                  <Phone size={15} /> {store.phone}
-                </span>
-              )}
-            </div>
-            <Link to={`/store/${other}`} className="switch">
-              <ArrowLeftRight size={16} /> Switch to Store {stores[other].no}
-            </Link>
-          </motion.div>
-          <div className="shop-hero__fan">
-            {STORE_BANNERS[id].map((k, i) => (
-              <motion.div key={id + k} className="fan-card" style={{ ['--i' as string]: i }} initial={{ opacity: 0, y: 60, rotate: 0 }} animate={{ opacity: 1, y: 0, rotate: (i - 1) * 9 }} transition={{ delay: 0.1 + i * 0.12, type: 'spring', damping: 18 }}>
-                <img src={photo(k)} alt="" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <StoreHero storeId={id} onPickCat={setCat} />
 
-      <section className="wrap shop-body">
+      <section className="wrap shop-body" id="rack">
         <div className="shop-bar">
           <div className="chips">
             {(['All', ...CATS] as const).map((c) => (
