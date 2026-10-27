@@ -12,7 +12,7 @@ const STRIP = [
   { icon: Store, b: 'Two stores, one brand', s: 'Shop the rack nearest you' },
 ];
 
-const DURATION = 3500; // per slide — short enough that visitors see every offer
+const DURATION = 3000; // per slide — short enough that visitors see every offer
 
 /** Auto-advancing index. It keeps moving on its own and only stops when `paused` is set. */
 function useCarousel(count: number, duration: number) {
@@ -54,7 +54,7 @@ export function SlideContent({ s, animate = true }: { s: Pick<BannerSlide, 'imag
     <>
       <div className="bnr__img">
         {s.image ? (
-          <motion.img src={s.image} alt="" draggable={false} {...(animate ? { initial: { scale: 1.12 }, animate: { scale: 1 }, transition: { duration: 4.2, ease: 'linear' } } : {})} />
+          <motion.img src={s.image} alt="" draggable={false} {...(animate ? { initial: { scale: 1.12 }, animate: { scale: 1 }, transition: { duration: 3.6, ease: 'linear' } } : {})} />
         ) : (
           <div className="bnr__noimg">Upload a photo</div>
         )}
