@@ -255,7 +255,7 @@ function Trending() {
             Trending <em>now.</em>
           </motion.h2>
         </div>
-        <p>Hover a card to flip it — click to book.</p>
+        <p>Hover to flip a card — tap or click to book.</p>
       </div>
       <div className="rail" ref={rail}>
         <div className="rail__track">

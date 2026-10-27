@@ -32,27 +32,6 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   return <span className="eyebrow">{children}</span>;
 }
 
-const ANNOUNCEMENTS = ['Festive edit is live — new suits in both stores', 'Reserve online · Collect in store within 48 hours', 'Secure payments with Razorpay · UPI · Cards', 'Free basic alterations on suits & trousers'];
-
-function AnnounceBar() {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setI((n) => (n + 1) % ANNOUNCEMENTS.length), 3800);
-    return () => clearInterval(t);
-  }, []);
-  return (
-    <div className="announce-bar">
-      <AnimatePresence initial={false}>
-        <motion.div key={i} className="announce-bar__item" initial={{ y: 24, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -24, opacity: 0 }} transition={{ duration: 0.45 }}>
-          <i />
-          {ANNOUNCEMENTS[i]}
-          <i />
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
-}
-
 export function Header() {
   const { cartCount } = useStore();
   const [scrolled, setScrolled] = useState(false);
@@ -77,7 +56,6 @@ export function Header() {
 
   return (
     <>
-      <AnnounceBar />
       <header className={`nav ${scrolled ? 'nav--solid' : ''}`}>
         <div className="wrap nav__in">
           <Link to="/" className="nav__brand" aria-label="Sundar Brand home">
